@@ -11,7 +11,7 @@ Gmail, Calendar, or SQL tools.
 
 from agno.agent import Agent
 from agno.learn import LearnedKnowledgeConfig, LearningMachine, LearningMode
-from agno.models.openai import OpenAIChat
+from agno.models.openrouter import OpenRouter
 
 from kit.agents.settings import agent_db, kit_learnings
 from kit.config import KIT_MODEL
@@ -23,7 +23,7 @@ navigator = Agent(
     id="navigator",
     name="Kit",
     role="Personal agent for user interaction, memory, learnings, files, and web search",
-    model=OpenAIChat(id=KIT_MODEL),
+    model=OpenRouter(id=KIT_MODEL),
     db=agent_db,
     instructions=build_navigator_instructions(),
     knowledge=kit_learnings,

@@ -46,7 +46,7 @@ services:
       - WAIT_FOR_DB=True
       - PRINT_ENV_ON_LOAD=False
       # API keys
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
       # Telegram (the only interface)
       - TELEGRAM_TOKEN=${TELEGRAM_TOKEN:-}
       # Files
