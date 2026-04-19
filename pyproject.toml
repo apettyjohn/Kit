@@ -7,11 +7,13 @@ readme = "README.md"
 authors = [{ name = "Agno", email = "hello@agno.com" }]
 
 dependencies = [
+  "ag-ui-protocol>=0.1.16",
   "agno[os,telegram]",
   "ddgs",
   "openai",
   "pgvector",
   "psycopg[binary]",
+  "python-dotenv>=1.2.2",
 ]
 
 [project.optional-dependencies]

@@ -1,12 +1,12 @@
 from os import getenv
 from pathlib import Path
-from dotenv import loadenv
+from dotenv import load_dotenv
 from kit.paths import CONTEXT_DIR
 
 # ---------------------------------------------------------------------------
 # Environment
 # ---------------------------------------------------------------------------
-loadenv()
+load_dotenv()
 TELEGRAM_TOKEN = getenv("TELEGRAM_TOKEN", "")
 
 KIT_CONTEXT_DIR = Path(getenv("KIT_CONTEXT_DIR") or str(CONTEXT_DIR))

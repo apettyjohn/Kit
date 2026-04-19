@@ -8,6 +8,18 @@ resolution-markers = [
 ]
 
 [[package]]
+name = "ag-ui-protocol"
+version = "0.1.16"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pydantic" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/0f/8f/d209eca4cc6e2123542b0a8eeda62732a6ec8862fe78435178eaac13480d/ag_ui_protocol-0.1.16.tar.gz", hash = "sha256:b5f45c98ed52291c7a07d01eb91f44d5e73a2fae8c31e8fc2a48d749a4dec5b7", size = 6273, upload-time = "2026-04-17T17:56:14.641Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/18/fb/de67f470f5cd60581faae4653ee588646cf8a2ff34bfb8f2e6f406fb29da/ag_ui_protocol-0.1.16-py3-none-any.whl", hash = "sha256:3ed7787aa6a89233c398b85dce4ffed625f83f774ea9b3a7fa6133dc24599c88", size = 8648, upload-time = "2026-04-17T17:56:15.443Z" },
+]
+
+[[package]]
 name = "agno"
 version = "2.5.17"
 source = { registry = "https://pypi.org/simple" }
@@ -867,11 +879,13 @@ name = "kit"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "ag-ui-protocol" },
     { name = "agno", extra = ["os", "telegram"] },
     { name = "ddgs" },
     { name = "openai" },
     { name = "pgvector" },
     { name = "psycopg", extra = ["binary"] },
+    { name = "python-dotenv" },
 ]
 
 [package.optional-dependencies]
@@ -882,12 +896,14 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "ag-ui-protocol", specifier = ">=0.1.16" },
     { name = "agno", extras = ["os", "telegram"] },
     { name = "ddgs" },
     { name = "mypy", marker = "extra == 'dev'" },
     { name = "openai" },
     { name = "pgvector" },
     { name = "psycopg", extras = ["binary"] },
+    { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "ruff", marker = "extra == 'dev'" },
 ]
 provides-extras = ["dev"]

@@ -14,6 +14,7 @@ from pathlib import Path
 
 from agno.os import AgentOS
 
+from agno.os.interfaces.agui import AGUI
 from app.router import create_router
 from db import get_postgres_db
 from kit.agents import navigator
@@ -29,7 +30,7 @@ scheduler_base_url = getenv("AGENTOS_URL", "http://127.0.0.1:8000")
 # ---------------------------------------------------------------------------
 # Interfaces
 # ---------------------------------------------------------------------------
-interfaces: list = []
+interfaces: list = [AGUI(agent=navigator)]
 
 if TELEGRAM_TOKEN:
     from agno.os.interfaces.telegram import Telegram
