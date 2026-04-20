@@ -15,6 +15,7 @@ from pathlib import Path
 from agno.os import AgentOS
 
 from agno.os.interfaces.agui import AGUI
+from agno.os.interfaces.a2a import A2A
 from app.router import create_router
 from db import get_postgres_db
 from kit.agents import navigator
@@ -44,6 +45,11 @@ if TELEGRAM_TOKEN:
         )
     )
 
+    TELEGRAM_CHAT_ID = getenv("TELEGRAM_CHAT_ID", "")
+    if TELEGRAM_CHAT_ID:
+        from agno.tools.telegram import TelegramTools
+        navigator.tools.append(TelegramTools())
+
 
 # ---------------------------------------------------------------------------
 # Lifespan
@@ -69,6 +75,7 @@ agent_os = AgentOS(
     knowledge=[kit_learnings],
     interfaces=interfaces,
     config=str(Path(__file__).parent / "config.yaml"),
+    a2a_interface=True,
 )
 
 app = agent_os.get_app()
