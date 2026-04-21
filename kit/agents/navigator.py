@@ -23,7 +23,7 @@ navigator = Agent(
     id="navigator",
     name="Kit",
     role="Personal agent for user interaction, memory, learnings, files, and web search",
-    model=OpenRouter(id=KIT_MODEL),
+    model=OpenRouter(id=KIT_MODEL, max_tokens=1500000),
     db=agent_db,
     instructions=build_navigator_instructions(),
     knowledge=kit_learnings,
