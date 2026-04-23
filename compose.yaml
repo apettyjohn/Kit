@@ -23,13 +23,13 @@ services:
       dockerfile: Dockerfile
     image: ${IMAGE_NAME:-kit}:${IMAGE_TAG:-latest}
     container_name: kit-api
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
     restart: unless-stopped
     ports:
       - "${KIT_PORT:-8000}:8000"
     volumes:
-      # Hot-reload: mount source code
-      - .:/app
+      # Hot-reload: mount source code (DISABLED)
+      # - .:/app
       # User files
       - ${KIT_CONTEXT_DIR:-./context}:/app/context
     environment:
