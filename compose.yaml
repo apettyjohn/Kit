@@ -15,7 +15,7 @@ services:
     ports:
       - "${DB_PORT:-5432}:5432"
     networks:
-      - kit
+      - agent-network
 
   kit-api:
     build:
@@ -54,12 +54,13 @@ services:
     depends_on:
       - kit-db
     networks:
-      - kit
+      - agent-network
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
 networks:
-  kit:
+  agent-network:
+    driver: bridge
 
 volumes:
   pgdata:
